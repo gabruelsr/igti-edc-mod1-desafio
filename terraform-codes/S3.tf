@@ -20,12 +20,9 @@ resource "aws_s3_bucket" "desafio" {
   }
 }
 
-resource "aws_s3_bucket_object" "raw" {
-  for_each = fileset("../microdados_educacao_basica_2020", "**/*.csv")
-
-  bucket       = aws_s3_bucket.desafio.id
-  key          = each.key
-  source       = "${path.module}/content/${each.key}"
-  content_type = "csv"
-  etag         = filemd5("${path.module}/content/${each.key}")
+resource "aws_s3_bucket_object" "raw_data" {
+  for_each = fileset("../microdados_educacao_basica_2020", "*")
+  bucket = aws_s3_bucket.desafio.id
+  key    = "gabruelsr-igti-desafio-mod1/raw_zone/raw_data/${each.key}"
+  source = "../microdados_educacao_basica_2020/${each.key}"
 }
