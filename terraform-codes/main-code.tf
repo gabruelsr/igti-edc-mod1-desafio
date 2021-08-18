@@ -1,11 +1,5 @@
 # HCL - (Hashicorp Configuration Language) - Linguagem declarativa
 
-# Nome do provedor
-provider "aws" {
-  # Parâmetros
-  region = var.region
-}
-
 #recurso "nome do recurso" "nome no terraform"
 resource "aws_s3_bucket" "desafio" {
   #parâmetros de configuração do recurso
