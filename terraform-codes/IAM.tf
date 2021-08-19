@@ -115,24 +115,25 @@ resource "aws_iam_role" "glue" {
   name = "glue_converter_role"
 
   assume_role_policy = <<EOF
-{   Version = "2012-10-17"
-    Statement = [
-      {
-        Action = "sts:AssumeRole"
-        Effect = "Allow"
-        Sid    = ""
-        Principal = {
-          Service = "glue.amazonaws.com"
-        }
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Action": "sts:AssumeRole",
+      "Principal": {
+        "Service": "glue.amazonaws.com"
       },
-    ]
-  })
-
+      "Effect": "Allow",
+      "Sid": ""
+    }
+  ]
+}
+EOF
   tags = {
     name = "GabruelSR"
     ACC = "${var.num_conta}"
   }
-EOF
+
 }
 
 resource "aws_iam_role_policy_attachment" "glue_role_attach" {
