@@ -131,7 +131,7 @@ resource "aws_iam_role" "glue" {
 EOF
   tags = {
     name = "GabruelSR"
-    ACC = "${var.num_conta}"
+    ACC  = "${var.num_conta}"
   }
 
 }
