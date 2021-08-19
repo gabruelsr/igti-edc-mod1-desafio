@@ -4,7 +4,7 @@ resource "aws_glue_crawler" "desafio" {
   role          = aws_iam_role.glue.arn
 
   s3_target {
-    path = "s3://${aws_s3_bucket.desafio.bucket}/staging-zone/"
+    path = "s3://${aws_s3_bucket.desafio.bucket}/staging-zone/staging-data/"
   }
 
   configuration = <<EOF
