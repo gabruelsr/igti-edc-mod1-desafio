@@ -3,7 +3,7 @@ resource "aws_glue_job" "convert" {
   role_arn = aws_iam_role.glue.arn
 
   command {
-    script_location = "s3://${aws_s3_bucket.desafio.bucket}/support-zone/glue-scripts/glue_job_csv_to_parquet.py"
+    script_location = "s3://${aws_s3_bucket.desafio.bucket}/${aws_s3_bucket_object.glue_job_script.key}"
   }
 }
 

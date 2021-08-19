@@ -8,7 +8,7 @@ provider "aws" {
 # Centralizar o arquivo de controle de estado do terraform
 terraform {
   backend "s3" {
-    bucket = "gabruelsr-igti-desafio-mod1"
+    bucket = "${aws_s3_bucket.desafio.bucket}"
     key    = "state/terraform/terraform.tfstate"
     region = "us-east-2"
   }
